@@ -1,0 +1,270 @@
+# ==============================================================================
+# Oh My Tmux! Local Configuration
+# Catppuccin Mocha Theme
+# ==============================================================================
+
+# -- bindings ------------------------------------------------------------------
+
+tmux_conf_preserve_stock_bindings=false
+
+# -- session creation ----------------------------------------------------------
+
+tmux_conf_new_session_prompt=false
+tmux_conf_new_session_retain_current_path=false
+
+# -- windows & pane creation ---------------------------------------------------
+
+tmux_conf_new_window_retain_current_path=true
+tmux_conf_new_window_reconnect_ssh=false
+tmux_conf_new_pane_retain_current_path=true
+tmux_conf_new_pane_reconnect_ssh=false
+
+# -- display -------------------------------------------------------------------
+
+# RGB 24-bit colour support
+tmux_conf_24b_colour=true
+
+# -- theming -------------------------------------------------------------------
+
+tmux_conf_theme=enabled
+
+# ==============================================================================
+# Catppuccin Mocha Color Palette
+# ==============================================================================
+# Base      #1e1e2e
+# Mantle    #181825
+# Crust     #11111b
+# Surface0  #313244
+# Surface1  #45475a
+# Surface2  #585b70
+# Overlay0  #6c7086
+# Overlay1  #7f849c
+# Overlay2  #9399b2
+# Subtext0  #a6adc8
+# Subtext1  #bac2de
+# Text      #cdd6f4
+# Lavender  #b4befe
+# Blue      #89b4fa
+# Sapphire  #74c7ec
+# Sky       #89dceb
+# Teal      #94e2d5
+# Green     #a6e3a1
+# Yellow    #f9e2af
+# Peach     #fab387
+# Maroon    #eba0ac
+# Red       #f38ba8
+# Mauve     #cba6f7
+# Pink      #f5c2e7
+# Flamingo  #f2cdcd
+# Rosewater #f5e0dc
+
+# Theme colors (Catppuccin Mocha)
+tmux_conf_theme_colour_1="#1e1e2e"    # Base (dark background)
+tmux_conf_theme_colour_2="#313244"    # Surface0 (lighter background)
+tmux_conf_theme_colour_3="#585b70"    # Surface2 (inactive text)
+tmux_conf_theme_colour_4="#89b4fa"    # Blue (accent)
+tmux_conf_theme_colour_5="#f9e2af"    # Yellow (highlight)
+tmux_conf_theme_colour_6="#1e1e2e"    # Base
+tmux_conf_theme_colour_7="#cdd6f4"    # Text (light foreground)
+tmux_conf_theme_colour_8="#1e1e2e"    # Base
+tmux_conf_theme_colour_9="#f9e2af"    # Yellow
+tmux_conf_theme_colour_10="#f38ba8"   # Red
+tmux_conf_theme_colour_11="#a6e3a1"   # Green
+tmux_conf_theme_colour_12="#6c7086"   # Overlay0
+tmux_conf_theme_colour_13="#cdd6f4"   # Text
+tmux_conf_theme_colour_14="#1e1e2e"   # Base
+tmux_conf_theme_colour_15="#1e1e2e"   # Base
+tmux_conf_theme_colour_16="#f38ba8"   # Red
+tmux_conf_theme_colour_17="#cdd6f4"   # Text
+
+# -- window style --------------------------------------------------------------
+
+# window status style
+tmux_conf_theme_window_fg="default"
+tmux_conf_theme_window_bg="default"
+
+# highlight focused pane
+tmux_conf_theme_highlight_focused_pane=false
+
+# focused pane colours
+tmux_conf_theme_focused_pane_bg="#1e1e2e"
+
+# pane border style
+tmux_conf_theme_pane_border_style=thin
+
+# pane borders colours
+tmux_conf_theme_pane_border="#313244"
+tmux_conf_theme_pane_active_border="#cba6f7"
+
+# pane indicator colours
+tmux_conf_theme_pane_indicator="#89b4fa"
+tmux_conf_theme_pane_active_indicator="#89b4fa"
+
+# -- status line ---------------------------------------------------------------
+
+# status line style
+tmux_conf_theme_message_fg="#1e1e2e"
+tmux_conf_theme_message_bg="#f9e2af"
+tmux_conf_theme_message_attr="bold"
+
+# status line command style
+tmux_conf_theme_message_command_fg="#f9e2af"
+tmux_conf_theme_message_command_bg="#1e1e2e"
+tmux_conf_theme_message_command_attr="bold"
+
+# window modes style
+tmux_conf_theme_mode_fg="#1e1e2e"
+tmux_conf_theme_mode_bg="#f9e2af"
+tmux_conf_theme_mode_attr="bold"
+
+# status line style
+tmux_conf_theme_status_fg="#cdd6f4"
+tmux_conf_theme_status_bg="#1e1e2e"
+tmux_conf_theme_status_attr="none"
+
+# terminal title
+tmux_conf_theme_terminal_title="#h ❯ #S ❯ #I #W"
+
+# -- window status -------------------------------------------------------------
+
+# window status format
+tmux_conf_theme_window_status_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
+tmux_conf_theme_window_status_current_format="#I #W#{?#{||:#{window_bell_flag},#{window_zoomed_flag}}, ,}#{?window_bell_flag,🔔,}#{?window_zoomed_flag,🔍,}"
+
+# window status style (inactive)
+tmux_conf_theme_window_status_fg="#6c7086"
+tmux_conf_theme_window_status_bg="#1e1e2e"
+tmux_conf_theme_window_status_attr="none"
+
+# window status style (current/active)
+tmux_conf_theme_window_status_current_fg="#1e1e2e"
+tmux_conf_theme_window_status_current_bg="#cba6f7"
+tmux_conf_theme_window_status_current_attr="bold"
+
+# window status style (last active)
+tmux_conf_theme_window_status_last_fg="#cba6f7"
+tmux_conf_theme_window_status_last_bg="default"
+tmux_conf_theme_window_status_last_attr="none"
+
+# window status style (activity/bell)
+tmux_conf_theme_window_status_activity_fg="default"
+tmux_conf_theme_window_status_activity_bg="default"
+tmux_conf_theme_window_status_activity_attr="underscore"
+
+tmux_conf_theme_window_status_bell_fg="#f9e2af"
+tmux_conf_theme_window_status_bell_bg="default"
+tmux_conf_theme_window_status_bell_attr="blink,bold"
+
+# -- status left/right --------------------------------------------------------
+
+# status left style
+tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
+tmux_conf_theme_status_left_fg="#1e1e2e,#cdd6f4,#cdd6f4"
+tmux_conf_theme_status_left_bg="#a6e3a1,#313244,#313244"
+tmux_conf_theme_status_left_attr="bold,none,none"
+
+# status right style
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}| %R | %d %b | #{username}#{root} | #{hostname} "
+tmux_conf_theme_status_right_fg="#6c7086,#cdd6f4,#1e1e2e"
+tmux_conf_theme_status_right_bg="#1e1e2e,#313244,#89b4fa"
+tmux_conf_theme_status_right_attr="none,none,bold"
+
+# -- separators ----------------------------------------------------------------
+
+# Powerline separators (requires Nerd Font)
+tmux_conf_theme_left_separator_main=''
+tmux_conf_theme_left_separator_sub='|'
+tmux_conf_theme_right_separator_main=''
+tmux_conf_theme_right_separator_sub='|'
+
+# -- status indicators ---------------------------------------------------------
+
+# pairing indicator
+tmux_conf_theme_pairing="⚇"
+tmux_conf_theme_pairing_fg="none"
+tmux_conf_theme_pairing_bg="none"
+tmux_conf_theme_pairing_attr="none"
+
+# prefix indicator
+tmux_conf_theme_prefix="⌨"
+tmux_conf_theme_prefix_fg="none"
+tmux_conf_theme_prefix_bg="none"
+tmux_conf_theme_prefix_attr="none"
+
+# mouse indicator
+tmux_conf_theme_mouse="↗"
+tmux_conf_theme_mouse_fg="none"
+tmux_conf_theme_mouse_bg="none"
+tmux_conf_theme_mouse_attr="none"
+
+# root indicator
+tmux_conf_theme_root="!"
+tmux_conf_theme_root_fg="none"
+tmux_conf_theme_root_bg="none"
+tmux_conf_theme_root_attr="bold,blink"
+
+# synchronized indicator
+tmux_conf_theme_synchronized="⚏"
+tmux_conf_theme_synchronized_fg="none"
+tmux_conf_theme_synchronized_bg="none"
+tmux_conf_theme_synchronized_attr="none"
+
+# -- clock ---------------------------------------------------------------------
+
+# clock style (12-hour or 24-hour)
+tmux_conf_theme_clock_colour="#89b4fa"
+tmux_conf_theme_clock_style="24"
+
+# -- clipboard ----------------------------------------------------------------
+
+# clipboard integration (macOS uses pbcopy)
+tmux_conf_copy_to_os_clipboard=true
+
+# -- user customizations -------------------------------------------------------
+
+# increase history size
+set -g history-limit 50000
+
+# start with mouse mode enabled
+set -g mouse on
+
+# force Vi mode
+set -g status-keys vi
+set -g mode-keys vi
+
+# replace C-b by C-a (already done by oh-my-tmux, but ensure it)
+# set -g prefix2 C-a
+# bind C-a send-prefix -2
+
+# move status line to bottom
+set -g status-position bottom
+
+# faster command sequences
+set -s escape-time 10
+
+# -- tpm plugins ---------------------------------------------------------------
+
+# tmux-resurrect - save/restore sessions
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# tmux-continuum - automatic session save
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @continuum-restore 'on'
+set -g @continuum-save-interval '15'
+
+# -- custom key bindings -------------------------------------------------------
+
+# split current window horizontally
+bind - split-window -v -c "#{pane_current_path}"
+
+# split current window vertically  
+bind | split-window -h -c "#{pane_current_path}"
+
+# EOF
+#
+# # exit the script if any statement returns a non-true return value
+# set -e
+#
+# # some customizations that can't be done through tmux_conf_xxx variables
+# # for example, you can export environment variables:
+# # export MY_VAR="my_value"
