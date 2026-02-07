@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/Users/admin/.oh-my-zsh/custom/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # ==============================================================================
 # Zsh Configuration with Powerlevel10k
 # ==============================================================================
@@ -85,6 +92,15 @@ if [[ -n "$GHOSTTY_RESOURCES_DIR" ]]; then
     source "$GHOSTTY_RESOURCES_DIR/shell-integration/zsh/ghostty-integration"
 fi
 
+# Yazi shell wrapper - allows changing directory when exiting
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd < "$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
+}
+
 # ==============================================================================
 # Custom Aliases
 # ==============================================================================
@@ -115,3 +131,9 @@ bindkey '^[[B' history-search-forward
 # Re-enable Aliases (p10k disables them)
 # ==============================================================================
 setopt aliases
+
+# Claude Code CLI - CLIProxyAPI Configuration
+export ANTHROPIC_BASE_URL="http://localhost:8317"
+export ANTHROPIC_API_KEY="sk-EPJE1moyRxkq1IcATwdrbz0DzSEeU769"
+
+alias claude-mem='bun "/Users/admin/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'

@@ -1,0 +1,80 @@
+# Yazi Configuration
+# https://yazi-rs.github.io/docs/configuration/yazi
+
+[manager]
+# Layout ratio: left:center:right
+ratio = [1, 3, 4]
+
+# Show hidden files
+show_hidden = true
+
+# Sort by
+sort_by = "natural"
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = true
+
+# Show symlinks
+show_symlink = true
+
+[preview]
+# Enable image preview
+image_delay = 30
+
+# Max width/height for image preview
+max_width = 600
+max_height = 900
+
+# Caching for images
+cache_dir = ""
+
+[opener]
+edit = [
+    { run = 'nvim "$@"', block = true, for = "unix" },
+]
+open = [
+    { run = 'open "$@"', desc = "Open", for = "macos" },
+]
+reveal = [
+    { run = 'open -R "$1"', desc = "Reveal in Finder", for = "macos" },
+]
+
+[open]
+rules = [
+    { name = "*/", use = ["edit", "open", "reveal"] },
+    { mime = "text/*", use = ["edit", "reveal"] },
+    { mime = "image/*", use = ["open", "reveal"] },
+    { mime = "video/*", use = ["open", "reveal"] },
+    { mime = "audio/*", use = ["open", "reveal"] },
+    { mime = "inode/x-empty", use = ["edit", "reveal"] },
+    { mime = "application/json", use = ["edit", "reveal"] },
+    { mime = "*/javascript", use = ["edit", "reveal"] },
+    { mime = "*", use = ["open", "reveal"] },
+]
+
+[tasks]
+# Maximum number of concurrent micro tasks
+micro_workers = 10
+
+# Maximum number of concurrent macro tasks
+macro_workers = 25
+
+# Maximum number of concurrent image tasks
+image_alloc = 536870912  # 512MB
+image_bound = [0, 0]
+
+[plugin]
+prepend_previewers = []
+append_previewers = []
+prepend_preloaders = []
+append_preloaders = []
+
+[[plugin.prepend_fetchers]]
+id  = "git"
+url = "*"
+run = "git"
+
+[[plugin.prepend_fetchers]]
+id  = "git"
+url = "*/"
+run = "git"

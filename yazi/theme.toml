@@ -1,0 +1,7 @@
+# Yazi Theme Configuration
+# Using official Catppuccin Mocha flavor
+# https://github.com/yazi-rs/flavors
+
+# Use the Catppuccin Mocha flavor
+[flavor]
+use = "catppuccin-mocha"

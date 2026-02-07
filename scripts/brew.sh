@@ -34,6 +34,14 @@ BREW_PACKAGES=(
     git-delta
     starship
     node         # Required for some Neovim plugins
+    
+    # Yazi file manager and optional dependencies
+    yazi
+    ffmpeg       # Video thumbnails
+    sevenzip     # Archive preview/extraction
+    poppler      # PDF preview
+    resvg        # SVG preview
+    imagemagick  # Image transformations
 )
 
 # Install packages

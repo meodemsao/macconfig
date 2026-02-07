@@ -57,4 +57,7 @@ if [ -f "$DOTFILE_DIR/starship/starship.toml" ]; then
     create_symlink "$DOTFILE_DIR/starship/starship.toml" "$HOME/.config/starship.toml"
 fi
 
+# Yazi file manager
+create_symlink "$DOTFILE_DIR/yazi" "$HOME/.config/yazi"
+
 print_success "All symlinks created"
