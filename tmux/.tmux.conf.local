@@ -228,6 +228,10 @@ set -g history-limit 50000
 # start with mouse mode enabled
 set -g mouse on
 
+# aggressive resize - resize window to the size of the smallest client ONLY if 
+# that client is actively looking at it (fixes status bar position issues)
+setw -g aggressive-resize on
+
 # force Vi mode
 set -g status-keys vi
 set -g mode-keys vi
