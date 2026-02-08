@@ -43,9 +43,7 @@ prepend_keymap = [
     ], run = "create", desc = "Create file or directory" },
 
     # Toggle hidden files
-    { on = [
-        "H",
-    ], run = "hidden toggle", desc = "Toggle hidden files" },
+    { on = "H", run = "hidden toggle", desc = "Toggle hidden files" },
 
     # Open in Finder
     { on = [
