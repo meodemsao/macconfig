@@ -12,7 +12,7 @@ adjust-cell-height = 10%
 window-padding-x = 10
 window-padding-y = 10
 window-decoration = true
-macos-titlebar-style = tabs
+macos-titlebar-style = hidden
 background-opacity = 0.95
 
 # Cursor
