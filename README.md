@@ -4,10 +4,11 @@ Bộ dotfiles để setup môi trường terminal cho macOS với theme **Catppu
 
 ## ✨ Features
 
-- **Ghostty Terminal** - Modern, fast terminal emulator
+- **Terminal Emulator** - Ghostty (default) hoặc WezTerm (tuỳ chọn)
 - **Oh My Zsh + Powerlevel10k** - Zsh framework với theme đẹp
 - **Oh My Tmux** - Tmux configuration framework
 - **LazyVim + Claude Code** - Neovim config với AI coding assistant
+- **Raycast** - Spotlight replacement với nhiều tính năng mạnh
 - **AeroSpace** - Tiling window manager cho macOS (default)
 - **yabai + skhd** - Alternative tiling WM (optional)
 - **Modern CLI Tools** - bat, eza, ripgrep, fd, fzf, và nhiều hơn nữa
@@ -29,7 +30,7 @@ Bộ dotfiles để setup môi trường terminal cho macOS với theme **Catppu
 ## 📋 Requirements
 
 - macOS
-- [Ghostty](https://ghostty.org/) terminal
+- [Ghostty](https://ghostty.org/) hoặc [WezTerm](https://wezfurlong.org/wezterm/) (cài qua install script)
 - Git
 - [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) (optional, for AI coding)
 
@@ -47,11 +48,13 @@ INSTALL_YABAI_SKHD=true ./install.sh
 ```
 
 Script sẽ tự động:
-1. Cài đặt Homebrew & các CLI tools
-2. Setup Oh My Zsh với Powerlevel10k
-3. Cài đặt Oh My Tmux
-4. Tạo symlinks cho tất cả configs
-5. Cài đặt Catppuccin themes
+1. Hỏi chọn terminal emulator (Ghostty/WezTerm)
+2. Cài đặt Homebrew & các CLI tools
+3. Cài đặt Raycast & disable Spotlight shortcut
+4. Setup Oh My Zsh với Powerlevel10k
+5. Cài đặt Oh My Tmux
+6. Tạo symlinks cho tất cả configs
+7. Cài đặt Catppuccin themes
 
 ## 📁 Structure
 
@@ -62,9 +65,12 @@ dotfile/
 │   ├── clean.sh           # Clean old configs
 │   ├── brew.sh            # Homebrew & packages
 │   ├── ohmyzsh.sh         # Oh My Zsh + Powerlevel10k
-│   └── symlink.sh         # Create symlinks
+│   ├── symlink.sh         # Create symlinks
+│   └── raycast.sh         # Raycast setup (disable Spotlight)
 ├── ghostty/
 │   └── config             # Ghostty config (Catppuccin)
+├── wezterm/
+│   └── wezterm.lua        # WezTerm config (Catppuccin)
 ├── zsh/
 │   ├── .zshrc             # Zsh config
 │   ├── .p10k.zsh          # Powerlevel10k config
@@ -88,7 +94,7 @@ dotfile/
 ## 🎨 Theme
 
 Sử dụng **Catppuccin Mocha** xuyên suốt:
-- Ghostty
+- Ghostty / WezTerm
 - Neovim (LazyVim)
 - Oh My Tmux
 - bat
@@ -131,24 +137,30 @@ Plugin Claude Code đã được cấu hình sẵn trong Neovim với các keybi
 
 ## 🔧 Post-Installation
 
-### 1. Configure Powerlevel10k
+### 1. Configure Raycast as Spotlight replacement
+```bash
+# Spotlight shortcut đã được tự động disable
+# Mở Raycast → Preferences (Cmd+,) → General → Record Hotkey → nhấn Cmd+Space
+```
+
+### 2. Configure Powerlevel10k
 ```bash
 p10k configure
 ```
 
-### 2. Start Tmux and install plugins
+### 3. Start Tmux and install plugins
 ```bash
 tmux
 # Nhấn Ctrl+a rồi Shift+i
 ```
 
-### 3. Open Neovim để cài plugins
+### 4. Open Neovim để cài plugins
 ```bash
 nvim
 # LazyVim sẽ tự động cài plugins
 ```
 
-### 4. AeroSpace sẽ tự khởi động cùng macOS
+### 5. AeroSpace sẽ tự khởi động cùng macOS
 Cấu hình đã bật `start-at-login = true`.
 
 ## 🪟 AeroSpace Keybindings

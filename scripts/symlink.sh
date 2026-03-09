@@ -32,8 +32,12 @@ create_symlink() {
 # Create config directory
 mkdir -p "$HOME/.config"
 
-# Ghostty
-create_symlink "$DOTFILE_DIR/ghostty" "$HOME/.config/ghostty"
+# Terminal config (based on $TERMINAL selection)
+if [ "$TERMINAL" = "wezterm" ]; then
+    create_symlink "$DOTFILE_DIR/wezterm" "$HOME/.config/wezterm"
+else
+    create_symlink "$DOTFILE_DIR/ghostty" "$HOME/.config/ghostty"
+fi
 
 # Neovim (LazyVim)
 create_symlink "$DOTFILE_DIR/nvim" "$HOME/.config/nvim"
