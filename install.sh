@@ -49,9 +49,10 @@ echo "This will install and configure:"
 echo "  • Homebrew & CLI tools"
 echo "  • Oh My Zsh with Powerlevel10k"
 echo "  • Zsh plugins & aliases"
-echo "  • Ghostty config (Catppuccin)"
+echo "  • Terminal emulator (Ghostty or WezTerm)"
 echo "  • LazyVim (Catppuccin)"
 echo "  • Tmux (Catppuccin)"
+echo "  • Raycast (Spotlight replacement)"
 echo "  • AeroSpace (Tiling Window Manager)"
 echo ""
 echo -e "  ${CYAN}Optional:${NC}"
@@ -60,12 +61,30 @@ echo ""
 echo -e "${YELLOW}⚠️  Warning: This will REMOVE and REPLACE existing configs!${NC}"
 echo ""
 
-read -p "Continue? (y/n) " -n 1 -r
-echo
+read -r -p "Continue? (y/n) " REPLY
 if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     print_warning "Installation cancelled"
     exit 0
 fi
+
+# ==============================================================================
+# Terminal Selection
+# ==============================================================================
+echo ""
+echo -e "${BLUE}Select terminal emulator:${NC}"
+echo "  1) Ghostty (default)"
+echo "  2) WezTerm"
+echo ""
+read -r -p "Choice [1]: " TERMINAL_CHOICE
+TERMINAL_CHOICE=${TERMINAL_CHOICE:-1}
+
+case $TERMINAL_CHOICE in
+    2) TERMINAL="wezterm" ;;
+    *) TERMINAL="ghostty" ;;
+esac
+
+export TERMINAL
+print_success "Selected terminal: $TERMINAL"
 
 # ==============================================================================
 # Step 1: Clean old configurations
@@ -75,8 +94,7 @@ print_header "🧹 Cleaning Old Configurations"
 echo "Do you want to remove existing configs first?"
 echo "  (This ensures a clean installation without conflicts)"
 echo ""
-read -p "Clean old configs? (y/n) " -n 1 -r
-echo
+read -r -p "Clean old configs? (y/n) " REPLY
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     source "$DOTFILE_DIR/scripts/clean.sh"
@@ -101,6 +119,12 @@ fi
 # ==============================================================================
 print_header "🍺 Homebrew & CLI Tools"
 source "$DOTFILE_DIR/scripts/brew.sh"
+
+# ==============================================================================
+# Step 3.5: Configure Raycast (replace Spotlight)
+# ==============================================================================
+print_header "🔍 Raycast (Spotlight Replacement)"
+source "$DOTFILE_DIR/scripts/raycast.sh"
 
 # ==============================================================================
 # Step 4: Install Oh My Zsh & Plugins

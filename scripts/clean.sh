@@ -97,6 +97,9 @@ backup_and_remove "$HOME/.oh-my-zsh"
 # Ghostty
 backup_and_remove "$HOME/.config/ghostty"
 
+# WezTerm
+backup_and_remove "$HOME/.config/wezterm"
+
 # ==============================================================================
 # Editor configs
 # ==============================================================================

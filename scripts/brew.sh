@@ -91,6 +91,28 @@ else
     print_success "AeroSpace installed"
 fi
 
+# Raycast - Spotlight replacement
+print_warning "Installing Raycast..."
+if brew list --cask raycast &>/dev/null; then
+    print_success "Raycast already installed"
+else
+    brew install --cask raycast
+    print_success "Raycast installed"
+fi
+
+# Terminal emulator (based on $TERMINAL selection)
+if [ "$TERMINAL" = "wezterm" ]; then
+    print_warning "Installing WezTerm..."
+    if brew list --cask wezterm &>/dev/null; then
+        print_success "WezTerm already installed"
+    else
+        brew install --cask wezterm
+        print_success "WezTerm installed"
+    fi
+else
+    print_success "Using Ghostty terminal (install manually from https://ghostty.org/)"
+fi
+
 # yabai + skhd - Alternative Tiling Window Manager (optional)
 # Set INSTALL_YABAI_SKHD=true to install these alongside AeroSpace
 if [ "$INSTALL_YABAI_SKHD" = "true" ]; then
