@@ -1,10 +1,3 @@
-# OPENSPEC:START
-# OpenSpec shell completions configuration
-fpath=("/Users/admin/.oh-my-zsh/custom/completions" $fpath)
-autoload -Uz compinit
-compinit
-# OPENSPEC:END
-
 # ==============================================================================
 # Zsh Configuration with Powerlevel10k
 # ==============================================================================
@@ -13,6 +6,11 @@ compinit
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("$HOME/.oh-my-zsh/custom/completions" $fpath)
+# OPENSPEC:END
 
 # Path to Oh-My-Zsh
 export ZSH="$HOME/.oh-my-zsh"
@@ -85,7 +83,7 @@ export PATH="$HOME/.local/bin:$PATH"
 stty -echoctl
 
 # Zoxide (better cd)
-eval "$(zoxide init zsh)"
+command -v zoxide &>/dev/null && eval "$(zoxide init zsh)"
 
 # fzf key bindings and completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
