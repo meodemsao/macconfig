@@ -54,6 +54,7 @@ echo "  • LazyVim (Catppuccin)"
 echo "  • Tmux (Catppuccin)"
 echo "  • Raycast (Spotlight replacement)"
 echo "  • AeroSpace (Tiling Window Manager)"
+echo "  • Nerd Font cho Terminal.app (tất cả profiles)"
 echo ""
 echo -e "  ${CYAN}Optional:${NC}"
 echo "  • yabai + skhd (run with INSTALL_YABAI_SKHD=true ./install.sh)"
@@ -125,6 +126,12 @@ source "$DOTFILE_DIR/scripts/brew.sh"
 # ==============================================================================
 print_header "🔍 Raycast (Spotlight Replacement)"
 source "$DOTFILE_DIR/scripts/raycast.sh"
+
+# ==============================================================================
+# Step 3.6: Set Nerd Font for Terminal.app
+# ==============================================================================
+print_header "🔤 Terminal.app Font"
+source "$DOTFILE_DIR/scripts/terminal-app.sh"
 
 # ==============================================================================
 # Step 4: Install Oh My Zsh & Plugins

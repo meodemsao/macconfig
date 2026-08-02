@@ -51,10 +51,17 @@ Script sẽ tự động:
 1. Hỏi chọn terminal emulator (Ghostty/WezTerm)
 2. Cài đặt Homebrew & các CLI tools
 3. Cài đặt Raycast & disable Spotlight shortcut
-4. Setup Oh My Zsh với Powerlevel10k
-5. Cài đặt Oh My Tmux
-6. Tạo symlinks cho tất cả configs
-7. Cài đặt Catppuccin themes
+4. Set Nerd Font cho tất cả profiles của Terminal.app
+5. Setup Oh My Zsh với Powerlevel10k
+6. Cài đặt Oh My Tmux
+7. Tạo symlinks cho tất cả configs
+8. Cài đặt Catppuccin themes
+
+Tuỳ chọn cho font Terminal.app:
+```bash
+SKIP_TERMINAL_APP_FONT=true ./install.sh          # bỏ qua, giữ font hiện tại
+TERMINAL_APP_FONT="FiraCodeNFM-Reg" ./install.sh  # dùng FiraCode thay JetBrainsMono
+```
 
 ## 📁 Structure
 
@@ -66,7 +73,8 @@ dotfile/
 │   ├── brew.sh            # Homebrew & packages
 │   ├── ohmyzsh.sh         # Oh My Zsh + Powerlevel10k
 │   ├── symlink.sh         # Create symlinks
-│   └── raycast.sh         # Raycast setup (disable Spotlight)
+│   ├── raycast.sh         # Raycast setup (disable Spotlight)
+│   └── terminal-app.sh    # Nerd Font cho Terminal.app (mọi profile)
 ├── ghostty/
 │   └── config             # Ghostty config (Catppuccin)
 ├── wezterm/
