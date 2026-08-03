@@ -8,7 +8,7 @@ Bộ dotfiles để setup môi trường terminal cho macOS với theme **Catppu
 - **Oh My Zsh + Powerlevel10k** - Zsh framework với theme đẹp
 - **Oh My Tmux** - Tmux configuration framework
 - **LazyVim + Claude Code** - Neovim config với AI coding assistant
-- **Raycast** - Spotlight replacement với nhiều tính năng mạnh
+- **Raycast** - Launcher mạnh, chạy song song với Spotlight (hotkey riêng)
 - **AeroSpace** - Tiling window manager cho macOS (default)
 - **yabai + skhd** - Alternative tiling WM (optional)
 - **Modern CLI Tools** - bat, eza, ripgrep, fd, fzf, và nhiều hơn nữa
@@ -50,7 +50,7 @@ INSTALL_YABAI_SKHD=true ./install.sh
 Script sẽ tự động:
 1. Hỏi chọn terminal emulator (Ghostty/WezTerm)
 2. Cài đặt Homebrew & các CLI tools
-3. Cài đặt Raycast & disable Spotlight shortcut
+3. Cài đặt Raycast (không đụng tới Spotlight)
 4. Set Nerd Font cho tất cả profiles của Terminal.app
 5. Setup Oh My Zsh với Powerlevel10k
 6. Cài đặt Oh My Tmux
@@ -73,7 +73,7 @@ dotfile/
 │   ├── brew.sh            # Homebrew & packages
 │   ├── ohmyzsh.sh         # Oh My Zsh + Powerlevel10k
 │   ├── symlink.sh         # Create symlinks
-│   ├── raycast.sh         # Raycast setup (disable Spotlight)
+│   ├── raycast.sh         # Raycast setup (không đụng Spotlight)
 │   └── terminal-app.sh    # Nerd Font cho Terminal.app (mọi profile)
 ├── ghostty/
 │   └── config             # Ghostty config (Catppuccin)
@@ -145,10 +145,11 @@ Plugin Claude Code đã được cấu hình sẵn trong Neovim với các keybi
 
 ## 🔧 Post-Installation
 
-### 1. Configure Raycast as Spotlight replacement
+### 1. Gán hotkey cho Raycast
 ```bash
-# Spotlight shortcut đã được tự động disable
-# Mở Raycast → Preferences (Cmd+,) → General → Record Hotkey → nhấn Cmd+Space
+# Spotlight giữ nguyên Cmd+Space
+# Mở Raycast → Preferences (Cmd+,) → General → Record Hotkey
+# Chọn tổ hợp không trùng Spotlight, ví dụ Option+Space
 ```
 
 ### 2. Configure Powerlevel10k

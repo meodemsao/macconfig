@@ -133,9 +133,9 @@ bindkey '^[[B' history-search-forward
 # ==============================================================================
 setopt aliases
 
-# Claude Code CLI - CLIProxyAPI Configuration
-export ANTHROPIC_BASE_URL="http://localhost:8317"
-export ANTHROPIC_API_KEY="sk-EPJE1moyRxkq1IcATwdrbz0DzSEeU769"
+# bun completions
+[ -s "/Users/panda/.bun/_bun" ] && source "/Users/panda/.bun/_bun"
 
-alias claude-mem='bun "/Users/admin/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
-export CLOUDFLARE_API_TOKEN="fpLFH-Ar9E0QVpz4mjDF1C1fztx5C2aBFRCkRv14"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
