@@ -7,6 +7,7 @@ Bộ dotfiles để setup môi trường terminal cho macOS với theme **Catppu
 - **Terminal Emulator** - Ghostty (default) hoặc WezTerm (tuỳ chọn)
 - **Oh My Zsh + Powerlevel10k** - Zsh framework với theme đẹp
 - **Oh My Tmux** - Tmux configuration framework
+- **opensessions** - Sidebar cho tmux: chuyển session, trạng thái agent, breadcrumb repo
 - **LazyVim + Claude Code** - Neovim config với AI coding assistant
 - **Raycast** - Launcher mạnh, chạy song song với Spotlight (hotkey riêng)
 - **AeroSpace** - Tiling window manager cho macOS (default)
@@ -200,6 +201,28 @@ p10k configure
 tmux
 # Nhấn Ctrl+a rồi Shift+i
 ```
+Cài `tmux-resurrect`, `tmux-continuum` và `opensessions`.
+Lần đầu nạp, `opensessions` tự tải binary prebuilt về `~/.tmux/plugins/opensessions/bin/`.
+
+## 🖥️ Tmux Keybindings
+
+Prefix: `Ctrl+b` (hoặc `Ctrl+a`)
+
+| Phím | Chức năng |
+|------|-----------|
+| `prefix` + `Ctrl+s` | Lưu session (tmux-resurrect) |
+| `prefix` + `Ctrl+r` | Khôi phục session (tmux-resurrect) |
+| `prefix` + `s` | Trình chọn session có sẵn của tmux |
+| `prefix` `o` → `s` | Mở/focus sidebar opensessions |
+| `prefix` `o` → `t` | Bật/tắt sidebar |
+| `prefix` `o` → `e` | Layout even-horizontal an toàn với sidebar |
+| `prefix` `o` → `1`..`9` | Nhảy nhanh tới session thứ N |
+| `prefix` + `Alt+1`..`9` | Nhảy nhanh tới session thứ N (không qua bảng `o`) |
+
+Session được continuum tự lưu mỗi 15 phút và tự khôi phục khi mở tmux.
+
+> `prefix` + `o` trước đây là chuyển pane (`select-pane -t :.+`) của Oh My Tmux,
+> nay bị opensessions dùng làm bảng phím riêng.
 
 ### 4. Open Neovim để cài plugins
 ```bash

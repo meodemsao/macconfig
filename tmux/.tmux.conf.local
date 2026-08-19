@@ -256,6 +256,10 @@ set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @continuum-restore 'on'
 set -g @continuum-save-interval '15'
 
+# opensessions - tmux sidebar: session switching, agent state, repo breadcrumbs
+# keys: prefix o -> s (focus), prefix o -> t (toggle), prefix o -> 1..9 (jump)
+set -g @plugin 'Ataraxy-Labs/opensessions'
+
 # -- custom key bindings -------------------------------------------------------
 
 # split current window horizontally
