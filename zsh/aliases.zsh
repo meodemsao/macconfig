@@ -22,8 +22,14 @@ alias grep="rg"
 # fd - better find
 alias find="fd"
 
+# Search aliases for hidden and git-ignored files
+alias rga="rg --hidden --no-ignore"           # ripgrep all (including hidden & git-ignored)
+alias fda="fd --hidden --no-ignore"           # fd all (including hidden & git-ignored)
+alias fdh="fd --hidden"                       # fd hidden files only
+alias rgh="rg --hidden"                       # ripgrep hidden files only
+
 # zoxide - better cd (already aliased via eval)
-alias cd="z"
+# alias cd="z"
 
 # ------------------------------------------------------------------------------
 # Git Shortcuts

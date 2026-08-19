@@ -27,6 +27,40 @@ Bộ dotfiles để setup môi trường terminal cho macOS với theme **Catppu
 | `lazygit` | - | Git TUI |
 | `delta` | - | Beautiful git diff |
 
+## 🔍 Cấu hình tìm kiếm (Search Configuration)
+
+Dotfiles này đã được cấu hình để tìm kiếm **hidden files** và **git-ignored files**:
+
+### Ripgrep (rg)
+- Config: `~/.config/ripgrep/.ripgreprc`
+- Tìm kiếm hidden files theo mặc định
+- Tìm kiếm git-ignored files theo mặc định
+- Loại trừ: `.git/`, `node_modules/`, `.DS_Store`, swap files
+
+### fd
+- Config: `~/.config/fd/.fdignore`
+- Dùng `--hidden` để tìm hidden files
+- Dùng `--no-ignore` để tìm git-ignored files
+
+### FZF
+- Đã cấu hình để tìm hidden và git-ignored files
+- Loại trừ: `.git/`, `node_modules/`
+
+### Search Aliases
+```bash
+# Tìm kiếm thông thường (tôn trọng .gitignore)
+rg <pattern>      # ripgrep
+fd <pattern>      # fd
+
+# Bao gồm hidden files
+rgh <pattern>     # ripgrep hidden
+fdh <pattern>     # fd hidden
+
+# Bao gồm hidden + git-ignored files
+rga <pattern>     # ripgrep all
+fda <pattern>     # fd all
+```
+
 ## 📋 Requirements
 
 - macOS
@@ -92,6 +126,10 @@ dotfile/
 │           └── claudecode.lua  # Claude Code AI
 ├── tmux/
 │   └── .tmux.conf.local   # Oh My Tmux config (Catppuccin)
+├── ripgrep/
+│   └── .ripgreprc         # Ripgrep config (search hidden & git-ignored)
+├── fd/
+│   └── .fdignore          # fd ignore patterns
 ├── aerospace/
 │   └── aerospace.toml     # AeroSpace tiling WM config (default)
 ├── yabai/                 # (optional) yabai config
@@ -192,15 +230,28 @@ Cấu hình đã bật `start-at-login = true`.
 Xem file `zsh/aliases.zsh` để biết tất cả aliases. Một số aliases hữu ích:
 
 ```bash
+# File listing
 ll          # eza -la với icons
 la          # eza -a với icons
 lt          # tree view (2 levels)
 cat         # bat với syntax highlighting
+
+# Editor
 v/vim/vi    # nvim
+
+# Git
 gs          # git status
 ga          # git add
 gc          # git commit
 lg          # lazygit
+
+# Search (tìm kiếm)
+rg          # ripgrep (tôn trọng .gitignore)
+rgh         # ripgrep hidden files
+rga         # ripgrep all (bao gồm hidden + git-ignored)
+fd          # fd find (tôn trọng .gitignore)
+fdh         # fd hidden files
+fda         # fd all (bao gồm hidden + git-ignored)
 ```
 
 ## 🔄 Update

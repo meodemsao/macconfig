@@ -1,0 +1,33 @@
+# ==============================================================================
+# Ripgrep Configuration
+# ==============================================================================
+
+# Search hidden files and directories
+--hidden
+
+# Follow symbolic links
+--follow
+
+# Don't respect .gitignore files (search git-ignored files too)
+--no-ignore
+
+# But still ignore these directories
+--glob=!.git/
+--glob=!node_modules/
+--glob=!.DS_Store
+--glob=!*.swp
+--glob=!*.swo
+
+# Smart case: case-insensitive if all lowercase, case-sensitive otherwise
+--smart-case
+
+# Show line numbers
+--line-number
+
+# Use colors
+--colors=line:fg:yellow
+--colors=line:style:bold
+--colors=path:fg:green
+--colors=path:style:bold
+--colors=match:fg:red
+--colors=match:style:bold

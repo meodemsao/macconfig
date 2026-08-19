@@ -64,6 +64,12 @@ fi
 # Yazi file manager
 create_symlink "$DOTFILE_DIR/yazi" "$HOME/.config/yazi"
 
+# Ripgrep config
+create_symlink "$DOTFILE_DIR/ripgrep" "$HOME/.config/ripgrep"
+
+# fd config
+create_symlink "$DOTFILE_DIR/fd" "$HOME/.config/fd"
+
 # AeroSpace tiling window manager
 create_symlink "$DOTFILE_DIR/aerospace" "$HOME/.config/aerospace"
 

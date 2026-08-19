@@ -1,0 +1,19 @@
+# ==============================================================================
+# fd ignore patterns
+# ==============================================================================
+# Note: fd respects .gitignore by default, but with --no-ignore flag it will
+# only respect this .fdignore file
+
+# Git directory
+.git/
+
+# Node modules
+node_modules/
+
+# macOS
+.DS_Store
+
+# Vim swap files
+*.swp
+*.swo
+*~
