@@ -6,11 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ##############################################
-# Antigravity
-##############################################
-export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
-
-##############################################
 # OpenSpec completions
 ##############################################
 # OPENSPEC:START
